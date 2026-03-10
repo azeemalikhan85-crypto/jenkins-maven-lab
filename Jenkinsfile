@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
+        maven 'Maven'
         jdk 'JDK21'
-        maven 'Maven3'
     }
 
     stages {
@@ -22,17 +22,17 @@ pipeline {
 
         stage('Verify Artifact') {
             steps {
-                bat 'ls target'
+                bat 'dir target'
             }
         }
     }
 
     post {
-        success {
-            echo 'Build SUCCESSFUL'
-        }
         failure {
             echo 'Build FAILED'
+        }
+        success {
+            echo 'Build SUCCESS'
         }
     }
 }
