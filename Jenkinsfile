@@ -16,13 +16,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
 
         stage('Verify Artifact') {
             steps {
-                sh 'ls target'
+                bat 'ls target'
             }
         }
     }
